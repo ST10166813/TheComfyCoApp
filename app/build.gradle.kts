@@ -68,4 +68,8 @@ dependencies {
 
     // For JSON serialization (optional if you prefer Moshi)
     implementation("com.google.code.gson:gson:2.11.0")
+
+    // Splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
 }

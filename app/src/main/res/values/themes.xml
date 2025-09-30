@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.TheComfyCoApp" parent="Base.Theme.TheComfyCoApp" />
+
+    <style name="Theme.TheComfyCoApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.TheComfyCoApp</item>
+    </style>
 </resources>
