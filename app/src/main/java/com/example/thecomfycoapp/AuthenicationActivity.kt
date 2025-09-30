@@ -62,7 +62,7 @@ class AuthenicationActivity : AppCompatActivity() {
                     } else {
                         saveToken(response?.token)
                         val intent = Intent(this, HomeActivity::class.java)
-                        intent.putExtra("userName", response?.userDetails?.name)
+                        intent.putExtra("name", response?.userDetails?.name)
                         startActivity(intent)
                         finish()
                     }
@@ -118,7 +118,7 @@ class AuthenicationActivity : AppCompatActivity() {
                 val userName = account.displayName
                 saveToken("google_login")
                 val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("userName", userName)
+                intent.putExtra("name", userName)
                 startActivity(intent)
                 finish()
             }

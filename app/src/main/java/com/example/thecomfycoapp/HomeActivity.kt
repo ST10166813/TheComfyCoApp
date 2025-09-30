@@ -13,8 +13,7 @@ class HomeActivity : AppCompatActivity() {
         val tvWelcome = findViewById<TextView>(R.id.tvWelcome)
 
         // Get the user name passed from AuthenticationActivity
-        val userName = intent.getStringExtra("userName") ?: "User"
-
-        tvWelcome.text = "Welcome, $userName!"
+        val fullName = intent.getStringExtra("name") ?: "User"
+        tvWelcome.text = "Welcome, $fullName!"
     }
 }
