@@ -35,13 +35,13 @@ class AuthenicationActivity : AppCompatActivity() {
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         val googleSignInBtn = findViewById<SignInButton>(R.id.googleSignInBtn)
         logoutBtn = findViewById<Button>(R.id.logoutBtn)
-        statusText = findViewById<TextView>(R.id.statusText)
+//        statusText = findViewById<TextView>(R.id.statusText)
 
-        // NEW: Open Register screen
-        val registerBtn = findViewById<Button>(R.id.registerBtn)
-        registerBtn.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
+//        // NEW: Open Register screen
+//        val registerBtn = findViewById<Button>(R.id.registerBtn)
+//        registerBtn.setOnClickListener {
+//            startActivity(Intent(this, RegisterActivity::class.java))
+//        }
 
         viewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
