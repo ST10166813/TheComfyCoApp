@@ -58,17 +58,24 @@ class AuthenicationActivity : AppCompatActivity() {
             viewModel.login(email, password) { response, error ->
                 runOnUiThread {
                     if (error != null) {
-                        statusText.text = "Login failed: ${error.message}"
+                        Toast.makeText(this, "Login failed: ${error.message}", Toast.LENGTH_SHORT).show()
                     } else {
-                        saveToken(response?.token)
-                        val intent = Intent(this, HomeActivity::class.java)
-                        intent.putExtra("name", response?.userDetails?.name)
+                        saveToken2(response?.token, response?.role)
+
+                        val role = response?.userDetails?.role ?: "user"
+                        val userName = response?.userDetails?.name
+
+                        val intent = if (role == "admin") {
+                            Intent(this, AdminDashboard::class.java)
+                        } else {
+                            Intent(this, HomeActivity::class.java)
+                        }
+
+                        intent.putExtra("name", userName)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-        }
+                    } }
+            } }
 
         // 🔹 Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -134,6 +141,13 @@ class AuthenicationActivity : AppCompatActivity() {
         }
     }
 
+    private fun saveToken2(token: String?, role: String?) {
+        val prefs = getSharedPreferences("auth", MODE_PRIVATE)
+        val editor = prefs.edit()
+        token?.let { editor.putString("token", it) }
+        role?.let { editor.putString("role", it) }
+        editor.apply()
+    }
     private fun clearToken() {
         val prefs = getSharedPreferences("auth", MODE_PRIVATE)
         prefs.edit().remove("token").apply()

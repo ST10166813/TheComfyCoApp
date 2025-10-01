@@ -10,9 +10,10 @@ import com.example.thecomfycoapp.network.RetrofitClient
 class AuthRepository {
     private val api = RetrofitClient.api
 
-    suspend fun register(name: String, email: String, password: String): RegisterResponse {
-        return api.register(RegisterRequest(name, email, password))
+    suspend fun register(name: String, email: String, password: String, confirmPassword: String): RegisterResponse {
+        return api.register(RegisterRequest(name, email, password, confirmPassword))
     }
+
 
     suspend fun login(email: String, password: String): LoginResponse {
         return api.login(LoginRequest(email, password))
