@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.HomeFragment">
 
+
     <!-- Hamburger icon -->
     <ImageView
         android:id="@+id/ivMenu"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="240dp"
         android:fontFamily="@font/tenor_sans_reg"
-        android:text="HI, USER!"
+        android:text=" "
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivMenu"
