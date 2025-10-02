@@ -4,4 +4,8 @@ package com.example.thecomfycoapp.models
 data class LoginResponse(
     val token: String,
     val userDetails: UserDetails
-)
+) {
+    val role: String
+        get() = userDetails.role
+}
+
